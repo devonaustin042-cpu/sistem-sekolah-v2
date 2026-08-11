@@ -96,26 +96,4 @@ Route::name('SchoolClass.')->prefix('SchoolClass')->group(function(){
 
 
 // Managemen Major
-Route::name('majors.')->prefix('majors')->group(function(){
-
-    // Halaman daftar jurusan
-    Route::get('/', [MajorController::class,'index'])->name('index');
-
-    // Halaman tambah jurusan
-    Route::get('/create', [MajorController::class,'create'])->name('create');
-
-    // Halaman edit jurusan
-    Route::get('/{id}/edit', [MajorController::class,'edit'])->name('edit');
-
-    // Halaman detail jurusan
-    Route::get('/{id}', [MajorController::class,'show'])->name('show');
-
-    // Logika Tambah jurusan
-    Route::post('/', [MajorController::class,'store'])->name('store');
-
-    // Logika Edit jurusan
-    Route::put('/{id}', [MajorController::class,'update'])->name('update');
-
-    // Logika Hapus jurusan
-    Route::delete('/{id}', [MajorController::class,'destroy'])->name('destroy');
-});
+    Route::resource('majors', MajorController::class);
