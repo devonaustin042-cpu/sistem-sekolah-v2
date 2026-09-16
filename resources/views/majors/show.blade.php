@@ -19,7 +19,7 @@
             </div>
             <div class="flex justify-between px-8 py-4">
                 <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Jurusan</dt>
-                <dd class="font-medium text-[#16213A]">{{ $major['subject'] ?? 'Akuntansi dan Keuangan Lembaga' }}</dd>
+                <dd class="font-medium text-[#16213A]">{{ $major['name'] ?? 'Akuntansi dan Keuangan Lembaga' }}</dd>
             </div>
             <div class="flex justify-between px-8 py-4">
                 <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
