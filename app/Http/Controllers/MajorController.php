@@ -9,7 +9,7 @@ class MajorController extends Controller
 
     public function index()
     {
-        $title = "Sistem Sekolah - Tambah Jurusan";
+        $title = "Sistem Sekolah - Daftar Jurusan";
         $majors = [
             [
                 'id' => 1,

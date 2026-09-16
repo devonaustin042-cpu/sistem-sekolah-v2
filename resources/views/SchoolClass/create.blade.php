@@ -4,9 +4,9 @@
 
 @section('content')
     <x-page-header title="Catat Kelas Baru" description="Isi data untuk mendaftarkan kelas ke buku induk."
-        :backUrl="route('SchoolClass.index')" backText="Buku Induk" />
+        :backUrl="route('classes.index')" backText="Buku Induk" />
 
-    <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+    <form action="{{ route('classes.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
 
         <div>
             <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama
@@ -53,7 +53,7 @@
         </div>
 
         <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
-            <a href="{{ route('SchoolClass.index') }}"
+            <a href="{{ route('classes.index') }}"
                 class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
             <button type="submit"
                 class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan

@@ -30,7 +30,7 @@
         <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
             <a href="{{ route('majors.index') }}"
                 class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
-          <form action="" method="POST" onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')"></form>                @csrf
+          <form action="" method="POST" onsubmit="return confirm('Hapus data jurusan ini dari buku induk?')">      @csrf
                 @method('DELETE')
                 <button type="submit"
                     class="border border-red-200 px-5 py-2.5 text-sm font-medium text-red-700 transition hover:bg-red-50">Hapus</button>

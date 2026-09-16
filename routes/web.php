@@ -69,7 +69,7 @@ Route::name('teachers.')->prefix('teachers')->group(function(){
 
 
 // Managemen Kelas
-Route::name('SchoolClass.')->prefix('SchoolClass')->group(function(){
+Route::name('classes.')->prefix('classes')->group(function(){
 
     // Halaman daftar kelas
     Route::get('/', IndexController::class)->name('index');

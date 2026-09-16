@@ -5,7 +5,7 @@
 @section('content')
     <x-page-header title="Daftar Kelas" subtitle="Tahun Ajaran 2025/2026">
         <x-slot:action>
-            <a href="{{ route('SchoolClass.create') }}"
+            <a href="{{ route('classes.create') }}"
                 class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
                 Catat Kelas Baru
             </a>
@@ -16,7 +16,8 @@
         <table class="w-full text-left text-sm">
             <thead>
                 <tr class="border-b border-[#16213A] text-[11px] uppercase tracking-[0.15em] text-[#16213A]">
-                    <th class="w-14 px-10 py-3.5 font-semibold">Nama Kelas</th>
+                    <th class="w-14 px-5 py-3.5 font-semibold">No.</th>
+                    <th class="px-5 py-3.5 font-semibold">Nama Kelas</th>
                     <th class="px-5 py-3.5 font-semibold">Tingkat</th>
                     <th class="px-5 py-3.5 font-semibold">Jurusan</th>
                     <th class="px-5 py-3.5 font-semibold">Wali Kelas</th>
@@ -26,6 +27,9 @@
             <tbody>
                 @foreach ($classes as $class)
                     <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5]">
+                        <td class="px-5 py-4 font-mono text-xs text-slate-400">
+                            {{ $loop->iteration }}
+                        </td>
                         <td class="px-5 py-4 font-display text-lg text-[#A16207]">
                             {{ $class['name'] }}
                         </td>
@@ -40,12 +44,12 @@
                         </td>
                         <td class="px-5 py-4">
                             <div class="flex justify-end gap-4 text-xs font-medium">
-                                <a href="{{ route('SchoolClass.show', ['id' => $class['id']]) }}"
+                                <a href="{{ route('classes.show', ['id' => $class['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                                <a href="{{ route('SchoolClass.edit', ['id' => $class['id']]) }}"
+                                <a href="{{ route('classes.edit', ['id' => $class['id']]) }}"
                                     class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
 
-                                <form action="{{ route('SchoolClass.destroy', ['id' => $class['id']]) }}" method="POST"
+                                <form action="{{ route('classes.destroy', ['id' => $class['id']]) }}" method="POST"
                                     onsubmit="return confirm('Hapus data kelas ini dari buku induk?')">
                                     @csrf
                                     @method('DELETE')
