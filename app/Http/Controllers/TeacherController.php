@@ -8,7 +8,7 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        $title = "Sistem Sekolah - Edit Guru";
+        $title = "Sistem Sekolah - Daftar Guru";
         $teachers = [
             [
                 'id' => 1,
