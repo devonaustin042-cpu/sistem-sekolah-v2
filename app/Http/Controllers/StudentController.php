@@ -20,12 +20,13 @@ class StudentController extends Controller
         ]);
     }
 
-    public function show(string $id)
+    public function show(Student $student)
     {
         $title = "Sistem Sekolah - Detail Siswa";
 
         return view('students.show', [
-            'title' => $title
+            'title' => $title,
+            'student' => $student
         ]);
     }
 
@@ -38,12 +39,13 @@ class StudentController extends Controller
         ]);
     }
 
-    public function edit(string $id)
+    public function edit(Student $student)
     {
         $title = "Sistem Sekolah - Edit Siswa";
 
         return view('students.edit', [
-            'title' => $title
+            'title' => $title,
+            'student' => $student
         ]);
     }
 
@@ -65,13 +67,30 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function update(string $id)
+    public function update(Request $request, Student $student)
     {
-        return "Melakukan update data siswa dengan ID: {$id}";
+        // Validasi
+        $validatedRequest = $request->validate([
+            'nis' => ['required', 'string', 'size:4', 'unique:students,nis,' .$student->id],
+            'name' => ['required', 'string'],
+            'gender' => ['required', 'string', 'in:Laki-laki,Perempuan'],
+            'major' => ['required', 'string', 'in:AKL,TKJ,BID'],
+            'class' => ['required', 'string'],
+        ]);
+
+        // Update Data
+        $student->update($validatedRequest);
+
+        // Handle If Success
+        return redirect()->route('students.index');
     }
 
-    public function destroy(string $id)
+    public function destroy(Student $student)
     {
-        return "Menghapus data siswa dengan ID: {$id}";
+        // Delete Data
+        $student->delete();
+
+        // Handle If Success
+        return redirect()->route('students.index');
     }
 }
