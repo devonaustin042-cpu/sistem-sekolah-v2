@@ -23,6 +23,7 @@ Route::get('/login', [AuthController::class, 'loginview'])->name('login-view');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login-post');
 Route::get('/register', [AuthController::class, 'registerview'])->name('register-view');
 Route::post('/register', [AuthController::class, 'registerpost'])->name('register-post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Managemen Siswa
