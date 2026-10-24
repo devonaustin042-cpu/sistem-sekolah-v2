@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 #[Fillable('name')]
 class SchoolClass extends Model
 {
+    use HasFactory;
+    protected $table = 'classes';
+    
+    protected $fillable = ['name'];
+
     public function students()
     {
         return $this->hasMany(Student::class, 'class_id', 'id');

@@ -25,7 +25,7 @@ class MajorController extends Controller
             ],
             [
                 'id' => 3,  
-                'code' => 'BD',
+                'code' => 'BID',
                 'name' => 'Bisnis Digital',
                 'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
             ],

@@ -4,6 +4,7 @@ namespace App\Http\Requests\Student;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -22,8 +23,9 @@ class UpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+         $studentId = $this->route('student')?->id ?? $this->route('student');
         return [
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis,' .$this->student->id],
+            'nis' => ['required', 'string', 'size:4', Rule::unique('students', 'nis')->ignore($studentId)],
             'name' => ['required', 'string'],
             'gender' => ['required', 'string', 'in:Laki-laki,Perempuan'],
             'major' => ['required', 'string', 'in:AKL,TKJ,BID'],
